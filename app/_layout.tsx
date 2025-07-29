@@ -7,11 +7,13 @@ import { useDrizzleStudio } from "expo-drizzle-studio-plugin";
 import { Stack } from "expo-router";
 import { openDatabaseSync } from "expo-sqlite";
 import { useEffect } from "react";
+import "../global.css";
 
-export const expoDb = openDatabaseSync(DATABASE_NAME);
-export const db = drizzle(expoDb, { schema });
+
 
 export default function RootLayout() {
+  const expoDb = openDatabaseSync(DATABASE_NAME);
+  const db = drizzle(expoDb, { schema });
   
   const { success, error } = useMigrations(db, migrations);
   useDrizzleStudio(expoDb);
@@ -27,7 +29,13 @@ export default function RootLayout() {
 
   return (
     <Providers>
-      <Stack />
+      <Stack 
+        screenOptions={
+          {
+            headerShown: false,
+          }
+        }
+      />
     </Providers>
   );
 }
