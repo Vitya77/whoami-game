@@ -4,11 +4,11 @@ import journal from './meta/_journal.json';
 import m0000 from './0000_wealthy_boom_boom.sql';
 import m0001 from './0001_rapid_sentinel.sql';
 
-  export default {
-    journal,
-    migrations: {
-      m0000,
-m0001
-    }
+export default {
+  journal,
+  migrations: {
+    m0000,
+    m0001
   }
+}
   

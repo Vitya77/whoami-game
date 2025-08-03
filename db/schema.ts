@@ -17,3 +17,6 @@ export const playersTable = sqliteTable("players_table", {
   name: text().notNull(),
   roomId: int().notNull().references(() => roomsTable.id, { onDelete: 'cascade' }),
 });
+
+export type Room = typeof roomsTable.$inferSelect;
+export type Word = typeof wordsTable.$inferSelect;
