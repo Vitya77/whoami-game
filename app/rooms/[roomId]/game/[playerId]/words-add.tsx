@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { router, useLocalSearchParams } from "expo-router";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Text, TextInput, View } from "react-native";
+import { KeyboardAvoidingView, Text, TextInput, View } from "react-native";
 import * as yup from "yup";
 
 const schema = yup.object().shape({
@@ -57,7 +57,7 @@ const WordsAddScreen = () => {
             </Text>
           ))}
         </View>
-        <View className="w-full p-4 gap-y-5">
+        <KeyboardAvoidingView behavior='position' contentContainerClassName="gap-y-5" className="w-full p-4 gap-y-5">
           <View className="w-full px-4 space-y-4">
             <Controller
               control={control}
@@ -95,7 +95,7 @@ const WordsAddScreen = () => {
               Закінчити
             </Text>
           </Button>
-        </View>
+        </KeyboardAvoidingView>
       </View>
     ) : (
       <View className="flex-1 items-center justify-around px-4">
